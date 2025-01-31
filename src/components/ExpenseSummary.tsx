@@ -1,3 +1,5 @@
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { Progress } from "@/components/ui/progress";
 import { Expense } from "@/hooks/useExpenses";
 import React from "react";
 
@@ -11,11 +13,31 @@ export const ExpenseSummary: React.FC<ExpenseSummaryProps> = ({ expenses }) => {
     0
   );
 
+  const maxBudget = 1000; // You can make this configurable
+  const progressPercentage = (totalExpenses / maxBudget) * 100;
+
   return (
-    <div className="mt-4">
-      <h2 className="text-xl font-bold">Summary</h2>
-      <p>Total Expenses: ${totalExpenses.toFixed(2)}</p>
-      <p>Number of Expenses: {expenses.length}</p>
-    </div>
+    <Card className="mt-4">
+      <CardHeader>
+        <h2 className="text-2xl font-bold">Summary</h2>
+      </CardHeader>
+      <CardContent className="space-y-4">
+        <div className="flex justify-between items-center">
+          <p className="text-muted-foreground">Total Expenses</p>
+          <p className="text-2xl font-bold">${totalExpenses.toFixed(2)}</p>
+        </div>
+        <div className="space-y-2">
+          <div className="flex justify-between text-sm">
+            <span>Budget Usage</span>
+            <span>{progressPercentage.toFixed(1)}%</span>
+          </div>
+          <Progress value={progressPercentage} className="h-2" />
+        </div>
+        <div className="flex justify-between items-center">
+          <p className="text-muted-foreground">Number of Expenses</p>
+          <p className="text-xl font-semibold">{expenses.length}</p>
+        </div>
+      </CardContent>
+    </Card>
   );
 };
