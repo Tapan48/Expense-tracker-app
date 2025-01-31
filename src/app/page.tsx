@@ -9,8 +9,8 @@ export default function Home() {
   const { expenses, addExpense, removeExpense } = useExpenses();
 
   return (
-    <main className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">Expense Tracker</h1>
+    <main className="container mx-auto p-4 max-w-2xl">
+      <h1 className="text-2xl font-bold mb-4 text-center">Expense Tracker</h1>
       <ExpenseForm onAddExpense={addExpense} />
       <ExpenseList expenses={expenses} onRemoveExpense={removeExpense} />
       <ExpenseSummary expenses={expenses} />
