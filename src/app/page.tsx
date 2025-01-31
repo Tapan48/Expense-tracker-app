@@ -10,7 +10,7 @@ export default function Home() {
 
   return (
     <main className="container mx-auto p-4 max-w-2xl">
-      <h1 className="text-2xl font-bold mb-4 text-center">Expense Tracker</h1>
+      <h1 className="text-2xl font-bold mb-4 text-center">Expense Trackerrr</h1>
       <ExpenseForm onAddExpense={addExpense} />
       <ExpenseList expenses={expenses} onRemoveExpense={removeExpense} />
       <ExpenseSummary expenses={expenses} />
